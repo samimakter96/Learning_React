@@ -1,12 +1,51 @@
-import ExpenseItem from "./components/ExpenseItem";
+import ExpenseItem from './components/ExpenseItem';
+
 function App() {
+  const expenses = [
+    {
+      id: '1',
+      date: new Date(),
+      title: 'Insurance',
+      price: 100,
+      location: 'Bangalore',
+    },
+    {
+      id: '2',
+      date: new Date(),
+      title: 'Book',
+      price: 10,
+      location: 'Delhi',
+    },
+    {
+      id: '3',
+      date: new Date(),
+      title: 'Pen',
+      price: 1,
+      location: 'Hyderabad',
+    },
+    {
+      id: '4',
+      date: new Date(),
+      title: 'Laptop',
+      price: 200,
+      location: 'Mumbai',
+    },
+  ];
+
   return (
     <div>
       <h1>Let's get Started</h1>
-      <ExpenseItem date={new Date(2024, 1, 12)} location="Bangalore" title="Insurance" price="50"></ExpenseItem>
-      <ExpenseItem date={new Date(2024, 2, 16)} location="Delhi" title="Book" price="20"></ExpenseItem>
-      <ExpenseItem date={new Date(2024, 3, 19)} location="Kolkata" title="Pen" price="5"></ExpenseItem>
-      <ExpenseItem date={new Date(2024, 5, 20)} location="Mumbai" title="Laptop" price="1000"></ExpenseItem>
+      {expenses.map((expense, index) => {
+        return (
+          <ExpenseItem
+            key={expense.id}
+            date={expense.date}
+            title={expense.title}
+            price={expense.price}
+            location={expense.location}
+          ></ExpenseItem>
+        );
+      })}
     </div>
   );
 }
