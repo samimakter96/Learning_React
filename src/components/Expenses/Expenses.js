@@ -1,10 +1,11 @@
+import React from 'react';
 import ExpenseItem from './ExpenseItem';
-import './Expenses.css'
+import './Expenses.css';
+import Card from '../UI/Card';
 
-
-function Expenses(props) {
+const Expenses = (props) => {
   return (
-    <div className='expenses'>
+    <Card className="expenses">
       {props.expenses.map((expense, index) => {
         return (
           <ExpenseItem
@@ -13,10 +14,10 @@ function Expenses(props) {
             title={expense.title}
             price={expense.price}
             location={expense.location}
-          ></ExpenseItem>
+          />
         );
       })}
-    </div>
+    </Card>
   );
 }
 
